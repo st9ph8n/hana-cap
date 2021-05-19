@@ -94,7 +94,7 @@ context opensap.common {
     //defined type with annotations
 
     type AmountT : Decimal(15, 20)@(
-        Semantics.amount.currencycode : 'Currency Code',
+        Semantics.amount.currencycode : 'Currency Code', //semantics.amount.currencycode is annotation for  monetary amount, and the corresponding currency code is contained in the referenced field.
         sap.unit                      : 'Currency Code'
     );
 
@@ -106,6 +106,11 @@ context opensap.common {
         grossAmount : AmountT;
         netAmount   : AmountT;
         taxAmount   : AmountT;
+    }
+
+    aspect Quantity {
+        quantity : QuantityT;
+        quantityUnit: unitT;
     }
 
     type StatusT : String(1) enum {
