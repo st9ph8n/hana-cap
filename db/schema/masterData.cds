@@ -231,15 +231,15 @@ define view BPViewWithDesc as
     };
 
 
-define view BusinessPartnersView with parameters IM_PR : String(1) as
-    select from BPViewWithDesc {
-        ID,
-        partnerRole,
-        PartnerRoleDesc as email,
-        companyName
-    }
-    where
-        partnerRole = : IM_PR;
+// define view BusinessPartnersView with parameters IM_PR : String(1) as
+//     select from BPViewWithDesc {
+//         ID,
+//         partnerRole,
+//         PartnerRoleDesc as email,
+//         companyName
+//     }
+//     where
+//         partnerRole = : IM_PR;
 
 define view partnerRoles as
     select from BusinessPartners {
