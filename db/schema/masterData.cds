@@ -7,6 +7,7 @@ using {
 } from '@sap/cds/common';
 
 using {opensap.common} from './common';
+using {opensap.PurchaseOrder} from './purchaseOrder';
 
 namespace opensap.MD;
 
@@ -231,15 +232,15 @@ define view BPViewWithDesc as
     };
 
 
-// define view BusinessPartnersView with parameters IM_PR : String(1) as
-//     select from BPViewWithDesc {
-//         ID,
-//         partnerRole,
-//         PartnerRoleDesc as email,
-//         companyName
-//     }
-//     where
-//         partnerRole = : IM_PR;
+define view BusinessPartnersView with parameters IM_PR : String(1) as
+    select from BPViewWithDesc {
+        ID,
+        partnerRole,
+        PartnerRoleDesc as email,
+        companyName
+    }
+    where
+        partnerRole = : IM_PR;
 
 define view partnerRoles as
     select from BusinessPartners {
